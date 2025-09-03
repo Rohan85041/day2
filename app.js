@@ -41,7 +41,22 @@ app.post('/products',function(req,res){
   })
 
 })
+//use put request(app.put())  change 2nd product name to moto 5g
 
+app.get('/details',function(req,res){
+    let age=req.query.age;
+    let location=req.query.location;
+    res.send(`the user age is ${age} and his/her ${location}`)
+})
+//filter mrthod
+app.put('/product/:id',function(req,res){
+    let id=parseInt(req.params.id);
+    products[id-1].name="moto 5g";
+    res.json({
+        message:"updated succesfully"
+    })
+
+})
 
 
 app.listen(port,function(){
